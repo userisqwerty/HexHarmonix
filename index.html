@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HexHarmonix Laboratory</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="workbench-layout">
+        
+        <div class="side-panel">
+            <div class="panel-header">DIAGNOSTICS MONITOR</div>
+            
+            <div class="crt-screen">
+                <div class="scanline"></div>
+                <div class="screen-text" id="status-line">SYS.STATUS: STANDBY</div>
+                <div class="screen-text" id="route-line">SIGNAL.PATH: DISCONNECTED</div>
+                <div class="screen-text" id="wave-line">WAVEFORM: NONE</div>
+            </div>
+
+            <div class="patch-matrix">
+                <div class="socket"><span class="jack" id="jack-in"></span>IN_A</div>
+                <div class="socket"><span class="jack" id="jack-out"></span>OUT_B</div>
+                <div class="socket"><span class="jack" id="jack-mod"></span>MOD_LFO</div>
+            </div>
+        </div>
+
+        <div class="synth-panel">
+            <h1>HexHarmonix</h1>
+            
+            <div class="model-badge">
+                <span>MODEL: HH-01</span>
+                <span>OSC: POLY-CORE</span>
+            </div>
+
+            <div class="speaker-grille">
+                <div class="grille-bar"></div>
+                <div class="grille-bar"></div>
+                <div class="grille-bar"></div>
+                <div class="grille-bar"></div>
+            </div>
+
+            <button id="audio-toggle">POWER MAIN ENGINE</button>
+
+            <div class="keyboard-matrix">
+                <button class="synth-key" data-note="261.63" data-key="a"><span>A</span><span>C4</span></button>
+                <button class="synth-key" data-note="293.66" data-key="s"><span>S</span><span>D4</span></button>
+                <button class="synth-key" data-note="329.63" data-key="d"><span>D</span><span>E4</span></button>
+                <button class="synth-key" data-note="349.23" data-key="f"><span>F</span><span>F4</span></button>
+                <button class="synth-key" data-note="392.00" data-key="g"><span>G</span><span>G4</span></button>
+                <button class="synth-key" data-note="440.00" data-key="h"><span>H</span><span>A4</span></button>
+                <button class="synth-key" data-note="493.88" data-key="j"><span>J</span><span>B4</span></button>
+            </div>
+            
+            <div class="control">
+                <label for="pitch-slider">Pitch Offset: <span id="pitch-value">0Hz</span></label>
+                <input type="range" id="pitch-slider" min="-100" max="100" value="0">
+            </div>
+
+            <div class="control">
+                <label for="volume-slider">Output Gain: <span id="volume-value">50%</span></label>
+                <input type="range" id="volume-slider" min="0" max="100" value="50">
+            </div>
+
+            <div class="control">
+                <label for="wave-type">Waveform Matrix:</label>
+                <select id="wave-type">
+                    <option value="sine">Sine</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="square">Square</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
